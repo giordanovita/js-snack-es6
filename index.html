@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // Creare un array di oggetti: ogni oggetto descriverà 
+    // una bici da corsa con le seguenti proprietà: nome e peso. 
+    // Stampare a schermo la bici con peso minore.
+
+
+    function Bike(){
+
+        let bikes = [
+
+            {'nome': 'mountainbike',
+            'peso': 15
+            },
+
+            {'nome': 'citybike',
+            'peso': 13
+            },
+
+            {'nome': 'racingbike',
+            'peso': 9
+        },
+        ]
+        let smallBike = {
+            nome: '',
+            peso: Number.MAX_SAFE_INTEGER
+        };
+        for (let i=0;i<bikes.length;i++) {
+            const Bike = bikes[i];
+            let {peso} = Bike;
+            if (peso < smallBike.peso) {
+                smallBike = Bike;
+            }
+        }
+        console.log(bikes);
+        console.log(smallBike);
+
+        }
+
+ //Bike() 
+//-----------------------------------
+
+    function getRdn(min,max){
+            
+            const LocalMin = min;
+            const LocalMax = max - min + 1;
+
+        return Math.floor(Math.random()*LocalMax)+LocalMin
+    }
+
+    function teams(){
+
+            let squadre = [
+                {
+                    'nome': 'squadra1',
+                    'punti': 0,
+                    'falliSubiti': 0
+                },
+                {
+                    'nome': 'squadra2',
+                    'punti': 0,
+                    'falliSubiti': 0
+                },
+                {
+                    'nome': 'squadra3',
+                    'punti': 0,
+                    'falliSubiti': 0
+                },
+                {
+                    'nome': 'squadra4',
+                    'punti': 0,
+                    'falliSubiti': 0
+                },
+            ]
+
+
+            for(let i=0;i<squadre.length;i++){
+                const Team =squadre[i];
+                Team['punti']=getRdn(1,50);
+                Team['falliSubiti']=getRdn(1,50)
+
+            }
+                //console.log(squadre)
+
+
+            // Usando la destrutturazione creiamo un nuovo array 
+            // i cui elementi contengono solo nomi e falli subiti 
+            // e stampiamo tutto in console.
+    
+        const DesArr = [];
+            for (let i=0;i<squadre.length;i++) {
+                const Team = squadre[i];
+                let { punti, falliSubiti } = Team;
+                let desArrObj = { punti, falliSubiti };
+                DesArr.push(desArrObj);
+            }
+
+        console.log('vecchio array: ', squadre)
+        console.log('nuovo array: ', DesArr)
+
+     }
+
+   
+
+    teams()
+  //-------------------------
+ 
+   
+   
+  </script>  
+</body>
+</html>
