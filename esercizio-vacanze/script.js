@@ -24,12 +24,20 @@ function rangeTarget(a, b, array){
 
     });
 
-    return console.log(array, newArr)
+    return console.log(newArr)
 } 
+
+
+function filterArr(a, b, array) {
+     arr = array.filter((element, index) => (index >= a) && (index < b))
+    return console.log(arr);
+}
 
 
 
 function init(){
+    console.log(arr)
     rangeTarget( a, b, arr)
+    filterArr(a, b, arr)
 }
 $(init);
